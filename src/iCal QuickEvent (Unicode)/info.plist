@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>action</key>
+	<false/>
+	<key>background</key>
+	<true/>
+	<key>category</key>
+	<string>APPLESCRIPTS</string>
+	<key>command</key>
+	<string>on alfred_script(q)	set the clipboard to "" &amp; q	tell application "iCal" to activate	tell application "System Events"		keystroke "n" using {command down}
+		keystroke "v" using {command down}		keystroke return	end tellend alfred_script</string>
+	<key>disabled</key>
+	<false/>
+	<key>keyword</key>
+	<string>c</string>
+	<key>parameter</key>
+	<integer>2</integer>
+	<key>subtitle</key>
+	<string>(Quick Event is what you get when you press ⌘N in iCal for OS X Lion)</string>
+	<key>title</key>
+	<string>Add to iCal via Quick Event: {query}</string>
+</dict>
+</plist>

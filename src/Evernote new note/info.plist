@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>action</key>
+	<false/>
+	<key>background</key>
+	<false/>
+	<key>category</key>
+	<string>APPLESCRIPTS</string>
+	<key>command</key>
+	<string>(*
+based on http://meeiw.tumblr.com/post/10559539458/notes-with-tag-support-with-evernote-and-alfred
+*)
+
+on alfred_script(theNote)set theNotebook to "Notes"set AppleScript's text item delimiters to "#"set theTextItems to text items of theNoteset theTitleAndBody to item 1 of theTextItemsset tagsWithSpaces to the rest of theTextItemsset AppleScript's text item delimiters to "//"set theTextItems2 to text items of theTitleAndBodyset theTitle to item 1 of theTextItems2set theBody to the rest of theTextItems2set theNoteBody to "&lt;strong&gt;" &amp; theTitle &amp; "&lt;/strong&gt;&lt;p&gt;" &amp; theBodyset theTags to {}set AppleScript's text item delimiters to " "repeat with aTag in tagsWithSpaces	set end of theTags to item 1 of text items of aTagend repeattell application "Evernote"	create note title theTitle with html theNoteBody tags theTags notebook theNotebookend tellend alfred_script
+</string>
+	<key>disabled</key>
+	<false/>
+	<key>keyword</key>
+	<string>en</string>
+	<key>parameter</key>
+	<integer>0</integer>
+	<key>subtitle</key>
+	<string>title // text #tag #tag2   -- creates new note in "Notes" notebook with title, text and tags</string>
+	<key>title</key>
+	<string>New note with title and tags</string>
+</dict>
+</plist>

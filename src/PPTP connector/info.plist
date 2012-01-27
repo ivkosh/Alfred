@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>action</key>
+	<false/>
+	<key>background</key>
+	<true/>
+	<key>category</key>
+	<string>APPLESCRIPTS</string>
+	<key>command</key>
+	<string>on alfred_script(q)
+(* config *)
+set theVPNName to "MY PPTP VPN Name"
+
+tell application "System Events"
+        tell current location of network preferences
+                set VPNservice to service theVPNName
+                if exists VPNservice then set isConnected to connected of current configuration of VPNservice
+                if isConnected is false then 
+                        connect VPNservice
+                else 
+                        disconnect VPNservice
+                end if
+        end tell
+end tell
+end alfred_script</string>
+	<key>disabled</key>
+	<false/>
+	<key>keyword</key>
+	<string>pptp</string>
+	<key>parameter</key>
+	<integer>1</integer>
+	<key>subtitle</key>
+	<string>Connect via PPTP</string>
+	<key>title</key>
+	<string>PPTP connect</string>
+</dict>
+</plist>

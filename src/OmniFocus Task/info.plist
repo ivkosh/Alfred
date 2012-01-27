@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>action</key>
+	<false/>
+	<key>background</key>
+	<true/>
+	<key>category</key>
+	<string>APPLESCRIPTS</string>
+	<key>command</key>
+	<string>on alfred_script(q)
+tell application "OmniFocus"
+	tell default document
+		parse tasks with transport text q
+	end tell
+end tell
+end alfred_script</string>
+	<key>disabled</key>
+	<false/>
+	<key>keyword</key>
+	<string>t</string>
+	<key>parameter</key>
+	<integer>2</integer>
+	<key>subtitle</key>
+	<string>Action! @Context ::Project #Start #Due $Duration //Note</string>
+	<key>title</key>
+	<string>Add task to OmniFocus</string>
+</dict>
+</plist>

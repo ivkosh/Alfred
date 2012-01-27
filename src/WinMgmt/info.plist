@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>action</key>
+	<false/>
+	<key>background</key>
+	<false/>
+	<key>category</key>
+	<string>APPLESCRIPTS</string>
+	<key>command</key>
+	<string>on alfred_script(q)
+
+set activeApp to (path to frontmost application as Unicode text)set pathToFinder to path to application "Finder" as text--Get Screen Sizetell application "Finder"	set screenSize to bounds of window of desktop	set theWidth to item 3 of screenSize	set theHeight to item 4 of screenSize	set halfWidth to (theWidth / 2)	set halfHeight to (theHeight / 2)end tell--Get Desired Window Sizeset theChoices to {"Half 1", "Half 2", "Half 3", "Half 4", "Quad 1", "Quad 2", "Quad 3", "Quad 4"}set selectedSize to {choose from list theChoices} as textif activeApp = pathToFinder then		if (selectedSize = item 1 of theChoices) then		set windowParameters to {0, 0, halfWidth, theHeight}	else if (selectedSize = item 2 of theChoices) then		set windowParameters to {halfWidth, 0, theWidth, theHeight}	else if (selectedSize = item 3 of theChoices) then		set windowParameters to {0, 0, theWidth, (halfHeight - 33)}	else if (selectedSize = item 4 of theChoices) then		set windowParameters to {0, (halfHeight + 33), theWidth, theHeight}	else if (selectedSize = item 5 of theChoices) then		set windowParameters to {0, 0, halfWidth, (halfHeight - 33)}	else if (selectedSize = item 6 of theChoices) then		set windowParameters to {halfWidth, 0, theWidth, (halfHeight - 33)}	else if (selectedSize = item 7 of theChoices) then		set windowParameters to {0, (halfHeight + 33), halfWidth, theHeight}	else if (selectedSize = item 8 of theChoices) then		set windowParameters to {halfWidth, (halfHeight + 33), theWidth, theHeight}	end if	else		if (selectedSize = item 1 of theChoices) then		set windowParameters to {0, 0, halfWidth, theHeight}	else if (selectedSize = item 2 of theChoices) then		set windowParameters to {halfWidth, 0, theWidth, theHeight}	else if (selectedSize = item 3 of theChoices) then		set windowParameters to {0, 0, theWidth, (halfHeight - 11)}	else if (selectedSize = item 4 of theChoices) then		set windowParameters to {0, (halfHeight + 11), theWidth, theHeight}	else if (selectedSize = item 5 of theChoices) then		set windowParameters to {0, 0, halfWidth, (halfHeight - 11)}	else if (selectedSize = item 6 of theChoices) then		set windowParameters to {halfWidth, 0, theWidth, (halfHeight - 11)}	else if (selectedSize = item 7 of theChoices) then		set windowParameters to {0, (halfHeight + 11), halfWidth, theHeight}	else if (selectedSize = item 8 of theChoices) then		set windowParameters to {halfWidth, (halfHeight + 11), theWidth, theHeight}	end ifend if--Resize Windowtell application activeApp	activate	set bounds of window 1 to windowParametersend tell
+
+end alfred_script</string>
+	<key>disabled</key>
+	<false/>
+	<key>keyword</key>
+	<string>wm</string>
+	<key>parameter</key>
+	<integer>1</integer>
+	<key>subtitle</key>
+	<string>Current window management / resize</string>
+	<key>title</key>
+	<string>Current window management</string>
+</dict>
+</plist>

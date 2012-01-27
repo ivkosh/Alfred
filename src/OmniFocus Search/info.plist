@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>action</key>
+	<false/>
+	<key>background</key>
+	<true/>
+	<key>category</key>
+	<string>APPLESCRIPTS</string>
+	<key>command</key>
+	<string>on alfred_script(q)
+
+(* 
+config:
+Perspective name to show with search results
+*)
+set theAllPerspective to "All"
+
+tell application "OmniFocus"--	activatetell the default documentmake new document windowtell the front document window to set the perspective name to theAllPerspectiveend telltell front windowtryset search term to qend tryend tellactivateend tell
+
+
+end alfred_script</string>
+	<key>disabled</key>
+	<false/>
+	<key>keyword</key>
+	<string>ofg</string>
+	<key>parameter</key>
+	<integer>2</integer>
+	<key>subtitle</key>
+	<string>Search for anything in OmniFocus database</string>
+	<key>title</key>
+	<string>Search in OmniFocus</string>
+</dict>
+</plist>
